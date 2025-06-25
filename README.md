@@ -1,7 +1,7 @@
 # enenso
 
 This is a very technical POC on how to connect to [ensenso cameras](https://www.optonic.com/marken/ensenso/), when running in kubernetes.
-The poc uses the `hostnetw`
+The poc uses the `hostNetwork`
 
 ## prerequisites
 
