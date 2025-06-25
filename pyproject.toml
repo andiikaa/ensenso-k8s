@@ -1,0 +1,11 @@
+[project]
+name = "enenso"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ensenso-nxlib==4.1.1033",
+    "nxlib==4.1.1033",
+    "flask>=2.0.0",
+]

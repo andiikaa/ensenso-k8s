@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enenso
+  labels:
+    app: enenso
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enenso
+  template:
+    metadata:
+      labels:
+        app: enenso
+    spec:
+      containers:
+      - name: enenso
+        image: someregistry/ensenso
+        imagePullPolicy: Always
+        env:
+        - name: BASE_PATH
+          value: "/somecell/ensenso"
+      imagePullSecrets:
+        - name: pull-secret-registry-code-wabo-run
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: enenso
+spec:
+  selector:
+    app: enenso
+  ports:
+  - port: 3123
+    targetPort: 3000
+  type: ClusterIP

@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta13
+kind: Config
+metadata:
+  name: enenso
+build:
+  artifacts:
+    - image: registry.code.wabo.run/andre.kuehnert/enenso
+      docker:
+        dockerfile: Dockerfile
+        buildArgs:
+          platform: "linux/amd64"
+
+manifests:
+  kustomize:
+    paths:
+      - k8s
